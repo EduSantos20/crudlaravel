@@ -38,7 +38,7 @@ class ProdutoController extends Controller
     public function store(Request $request): RedirectResponse
     {
         //
-        $request->validade([
+        $request->validate([
             'descricao' => 'required',
             'qtd' => 'required',
             'precoUnitario' => 'required',
@@ -75,7 +75,7 @@ class ProdutoController extends Controller
     public function update(Request $request, Produto $produto): RedirectResponse
     {
         //
-        $request->validade([
+        $request->validate([
             'descricao' => 'required',
             'qtd' => 'required',
             'precoUnitario' => 'required',
@@ -95,6 +95,6 @@ class ProdutoController extends Controller
         //
         $produto->delete();
         return redirect()->route('produtos.index')
-            ->with('sucess','Produto excluido com sucesso.');
+            ->with('sucess', 'Produto excluido com sucesso.');
     }
 }
